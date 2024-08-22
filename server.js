@@ -17,7 +17,7 @@ const swaggerDocument = YAML.load("./swagger.yaml");
 // Connect MongoDB
 connectDB();
 
-// const allowedOrigins = ['http://localhost:5173', 'https://fnb-web.vercel.app'];
+// const allowedOrigins = ['http://localhost:5173', 'https://'];
 
 // app.use(cors({
 
@@ -26,7 +26,7 @@ connectDB();
 //   credentials: true,
 // }));
 
-app.use(morgan("dev"));
+app.use(morgan("combined"));
 app.use(helmet());
 app.use(express.json());
 registerRoutes(app);
