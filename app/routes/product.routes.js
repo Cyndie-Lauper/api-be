@@ -3,6 +3,6 @@ import { getProducts } from "../controllers/product.controller.js";
 
 const router = express.Router();
 
-router.get("/products", getProducts);
+router.get("/getProducts", getProducts);
 
 export default router;
