@@ -2,7 +2,7 @@ import { User } from "../services/instances.js";
 
 // @desc    Create users
 // @route   POST /api/products
-// @access  Public
+// @access  Private
 const createUser = async (req, res) => {
     const result = await User.createUser(req.body);
     if (result.success) {
@@ -12,6 +12,9 @@ const createUser = async (req, res) => {
     }
 };
 
+// @desc    Get users by ID
+// @route   Get /api/products/:id
+// @access  Private or Authenticated
 const getUser = async (req, res) => {
     const result = await User.getUserById(req.params.id);
     if (!result) {
@@ -20,6 +23,9 @@ const getUser = async (req, res) => {
     res.json(result);
 };
 
+// @desc    Update users by ID
+// @route   PUT /api/products/:id
+// @access  Private
 const updateUser = async (req, res) => {
     const result = await User.updateUser(req.params.id, req.body);
     if (!result) {
@@ -28,6 +34,9 @@ const updateUser = async (req, res) => {
     res.json(result);
 };
 
+// @desc    Delete users by ID
+// @route   DELETE /api/products/:id
+// @access  Private
 const deleteUser = async (req, res) => {
     const result = await User.deleteUser(req.params.id);
     if (!result) {

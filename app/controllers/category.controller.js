@@ -1,7 +1,7 @@
 import { Category } from "../services/instances.js";
 
-// @desc    Get all products
-// @route   GET /api/products
+// @desc    Get all categories
+// @route   GET /api/categories
 // @access  Public
 const getCategories = async (req, res) => {
     const result = await Category.getAllCategory();

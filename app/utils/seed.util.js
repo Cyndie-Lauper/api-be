@@ -69,9 +69,9 @@ const data = async () => {
             },
         ]);
 
-        console.log("Dữ liệu mẫu đã được thêm vào MongoDB");
+        console.log("Sample data has been added to MongoDB");
     } catch (err) {
-        console.error("Lỗi khi thêm dữ liệu:", err);
+        console.error("Error adding data:", err);
     } finally {
         mongoose.connection.close();
     }
