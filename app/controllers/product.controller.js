@@ -1,10 +1,10 @@
-import { getAllProducts } from "../services/product.service.js";
+import { Product } from "../services/instances.js";
 
 // @desc    Get all products
 // @route   GET /api/products
 // @access  Public
 const getProducts = async (req, res) => {
-    const result = await getAllProducts();
+    const result = await Product.getAllProducts();
 
     if (result.success) {
         res.status(200).json(result);
