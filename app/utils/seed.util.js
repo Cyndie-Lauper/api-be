@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 import connectDB from "../databases/mongo.database.js";
-import Account from "../models/account.model.js";
 import Category from "../models/category.model.js";
 import Product from "../models/product.model.js";
+import User from "../models/user.model.js";
 
 const data = async () => {
     try {
         await connectDB();
 
-        await Account.deleteMany({});
+        await User.deleteMany({});
         await Product.deleteMany({});
         await Category.deleteMany({});
 
@@ -54,9 +54,19 @@ const data = async () => {
             },
         ]);
 
-        await Account.create([
-            { username: "admin", email: "ad@gm.com", password: "admin123" },
-            { username: "minh", email: "minh@gm.com", password: "password123" },
+        await User.create([
+            {
+                username: "admin",
+                email: "ad@gm.com",
+                password: "admin123",
+                role: "admin",
+            },
+            {
+                username: "minh",
+                email: "minh@gm.com",
+                password: "password123",
+                role: "user",
+            },
         ]);
 
         console.log("Dữ liệu mẫu đã được thêm vào MongoDB");
