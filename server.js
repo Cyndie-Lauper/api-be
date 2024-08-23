@@ -4,6 +4,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import connectDB from "./app/databases/mongo.database.js";
 import registerRoutes from "./app/middleware/app.middleware.js";
+import errorHandler from "./app/middleware/errorHandler.js";
 
 dotenv.config();
 
@@ -27,6 +28,9 @@ connectDB();
 app.use(morgan("combined"));
 app.use(helmet());
 app.use(express.json());
+app.use(errorHandler);
+
+//middleware
 registerRoutes(app);
 
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
