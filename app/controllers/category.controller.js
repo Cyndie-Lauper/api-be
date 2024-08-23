@@ -1,4 +1,4 @@
-import { Category } from "../services/instances.js";
+import { Category } from "../services/ins.service.js";
 
 // @desc    Get all categories
 // @route   GET /api/categories

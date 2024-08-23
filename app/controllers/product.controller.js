@@ -1,4 +1,4 @@
-import { Product } from "../services/instances.js";
+import { Product } from "../services/ins.service.js";
 
 // @desc    Get all products
 // @route   GET /api/products
