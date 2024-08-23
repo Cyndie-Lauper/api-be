@@ -4,18 +4,21 @@ import { validateCreateUser } from "../auth/validator.js";
 import {
     createUser,
     deleteUser,
-    getUser,
-    getUserbyID,
+    getUserbyId,
+    getUsers,
+    updateUser,
 } from "../controllers/user.controller.js";
 
 const router = express.Router();
 
-router.get("/users", authenticate, authorize(["admin"]), getUser);
+router.get("/users", authenticate, authorize(["admin"]), getUsers);
 
-router.get("/user/:id", authenticate, authorize(["admin"]), getUserbyID);
+router.get("/user/:id", authenticate, authorize(["admin"]), getUserbyId);
 
-router.post("/users", validateCreateUser, createUser);
+router.post("/user", validateCreateUser, createUser);
 
-router.delete("/users/:id", authenticate, authorize(["admin"]), deleteUser);
+router.patch("/user/:id", validateCreateUser, updateUser);
+
+router.delete("/user/:id", authenticate, authorize(["admin"]), deleteUser);
 
 export default router;
