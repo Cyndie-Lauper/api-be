@@ -1,4 +1,4 @@
-import { User } from "../services/instances.js";
+import { User } from "../services/ins.service.js";
 
 // @desc    Create users
 // @route   POST /api/products
