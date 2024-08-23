@@ -3,7 +3,7 @@ import { Category } from "../services/ins.service.js";
 // @desc    Get all categories
 // @route   GET /api/categories
 // @access  Public
-const getCategories = async (req, res) => {
+export const getCategories = async (req, res) => {
     const result = await Category.getAllCategory();
 
     if (result.success) {
@@ -12,5 +12,3 @@ const getCategories = async (req, res) => {
         res.status(500).json(result);
     }
 };
-
-export { getCategories };

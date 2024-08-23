@@ -2,8 +2,6 @@ import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import swaggerUi from "swagger-ui-express";
-import YAML from "yamljs";
 import connectDB from "./app/databases/mongo.database.js";
 import registerRoutes from "./app/middleware/app.middleware.js";
 
@@ -12,7 +10,7 @@ dotenv.config();
 // Constants
 const app = express();
 const port = process.env.PORT;
-const swaggerDocument = YAML.load("./swagger.yaml");
+// const swaggerDocument = YAML.load("./swagger.yaml");
 
 // Connect MongoDB
 connectDB();
@@ -31,7 +29,7 @@ app.use(helmet());
 app.use(express.json());
 registerRoutes(app);
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/", (req, res) => {
     res.send("Hello world!!");
