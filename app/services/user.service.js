@@ -14,6 +14,19 @@ class userServices {
         }
     }
 
+    async getAllUsers() {
+        try {
+            const user = await User.find();
+            return { success: true, data: user };
+        } catch (err) {
+            return {
+                success: false,
+                message: "Server Error",
+                error: err.message,
+            };
+        }
+    }
+
     async getUserById(id) {
         try {
             const user = await User.findById(id).select("-password");
