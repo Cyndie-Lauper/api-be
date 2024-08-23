@@ -1,25 +1,31 @@
-// const axios = require('axios');
-// const querystring = require('querystring');
-// const dotenv = require('dotenv');
-// dotenv.config();
+import dotenv from "dotenv";
+import { verify } from "jsonwebtoken";
 
-// async function getAccessToken() {
-//     try {
-//         const response = await axios.post(process.env.URL_TOKEN, querystring.stringify({
-//             scopes: 'PublicApi.Access',
-//             grant_type: 'client_credentials',
-//             client_id: process.env.CLIENT_ID,
-//             client_secret: process.env.CLIENT_SECRET
-//         }), {
-//             headers: {
-//                 'Content-Type': 'application/x-www-form-urlencoded'
-//             }
-//         });
-//         return response.data.access_token;
-//     } catch (error) {
-//         console.error('Error getting access token:', error.response ? error.response.data : error.message);
-//         throw error;
-//     }
-// }
+dotenv.config();
 
-// module.exports = getAccessToken;
+export function authenticate(req, res, next) {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        return res
+            .status(401)
+            .json({ message: "Authentication token not found" });
+    }
+
+    const token = authHeader.split(" ")[1];
+    try {
+        const decoded = verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        return res.status(401).json({ message: "Invalid Token" });
+    }
+}
+
+export function authorize(roles = []) {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            return res.status(403).json({ message: "No access" });
+        }
+        next();
+    };
+}
