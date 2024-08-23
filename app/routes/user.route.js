@@ -10,17 +10,12 @@ import {
 
 const router = express.Router();
 
-router.get("/getUsers", authenticate, authorize(["admin"]), getUser);
+router.get("/users", authenticate, authorize(["admin"]), getUser);
 
-router.get("/getUsers/:id", authenticate, authorize(["admin"]), getUserbyID);
+router.get("/user/:id", authenticate, authorize(["admin"]), getUserbyID);
 
-router.post("/createUsers", validateCreateUser, createUser);
+router.post("/users", validateCreateUser, createUser);
 
-router.delete(
-    "/deteleUsers/:id",
-    authenticate,
-    authorize(["admin"]),
-    deleteUser
-);
+router.delete("/users/:id", authenticate, authorize(["admin"]), deleteUser);
 
 export default router;
