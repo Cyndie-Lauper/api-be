@@ -1,7 +1,7 @@
-import authRoutes from "../routes/auth.route.js";
-import categoryRoutes from "../routes/category.route.js";
-import productRoutes from "../routes/product.route.js";
-import userRoutes from "../routes/user.route.js";
+import authRoutes from "../v1/routes/v1/auth.route.js";
+import categoryRoutes from "../v1/routes/v1/category.route.js";
+import productRoutes from "../v1/routes/v1/product.route.js";
+import userRoutes from "../v1/routes/v1/user.route.js";
 
 function registerRoutes(app) {
     app.use("/api/auth", authRoutes);
