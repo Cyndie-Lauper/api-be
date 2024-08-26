@@ -1,6 +1,6 @@
 import express from "express";
-import { authenticate, authorize } from "../auth/auth.js";
-import { validateCreateUser } from "../auth/validator.js";
+import { authenticate, authorize } from "../../auth/auth.js";
+import { validateCreateUser } from "../../auth/validator.js";
 import {
     createUser,
     deleteUser,
