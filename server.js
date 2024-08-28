@@ -15,7 +15,6 @@ dotenv.config();
 // Constants
 const app = express();
 const port = process.env.PORT || 3000;
-
 const swaggerPath = path.join(process.cwd(), "swagger.yaml");
 const swaggerDocument = YAML.load(swaggerPath);
 
