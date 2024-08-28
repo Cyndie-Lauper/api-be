@@ -1,3 +1,5 @@
+# Learn BE
+
 ## Features
 - **RESTful API**: Follows REST architecture for easy integration.
 - **Scalable**: Designed to scale horizontally with ease.
@@ -15,8 +17,8 @@ Ensure you have the following installed:
 ### Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/Cyndii-Lauper/ApiForge.git
-    cd ApiForge
+    git clone https://github.com/Cyndii-Lauper/Api-BE.git
+    cd Api-BE
     ```
 
 2. Install dependencies:
@@ -24,7 +26,7 @@ Ensure you have the following installed:
     bun install
     ```
 
-3. Create a `.env` file in the root directory and copy the environment variables from env.example to it:
+3. Create a `.env` file in the root directory and copy the environment variables from `.env.exmaple` to it:
 4. After connecting to mongodb, initialize database
    ```bash
     bun run seed
