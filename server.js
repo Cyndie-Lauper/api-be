@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import path from "path";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 import connectDB from "./app/databases/mongo.database.js";
@@ -13,7 +14,9 @@ dotenv.config();
 // Constants
 const app = express();
 const port = process.env.PORT || 3000;
-const swaggerDocument = YAML.load("./swagger.yaml");
+
+const swaggerPath = path.join(process.cwd(), "swagger.yaml");
+const swaggerDocument = YAML.load(swaggerPath);
 
 // Connect MongoDB
 connectDB();
