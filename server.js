@@ -12,7 +12,7 @@ dotenv.config();
 
 // Constants
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 // Connect MongoDB
