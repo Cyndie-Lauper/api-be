@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import connectDB from "../databases/mongo.database.js";
-import Category from "../models/category.model.js";
-import Product from "../models/product.model.js";
-import User from "../models/user.model.js";
+import Category from "../v1/models/category.model.js";
+import Product from "../v1/models/product.model.js";
+import User from "../v1/models/user.model.js";
 
 const data = async () => {
     try {
