@@ -1,3 +1,4 @@
+import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
@@ -30,6 +31,7 @@ connectDB();
 //   credentials: true,
 // }));
 
+app.use(cors());
 app.use(morgan("combined"));
 app.use(helmet());
 app.use(express.json());
