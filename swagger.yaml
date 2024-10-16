@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
-    title: User, Product, and Category Management API
+    title: Management API
     version: 1.0.0
-    description: API for managing users, products, categories, and authentication
+    description: API for managing
 
 servers:
-    - url: http://localhost:3000/api
+    - url: https://api-be-brown.vercel.app/api
 
 paths:
     /auth/login:
